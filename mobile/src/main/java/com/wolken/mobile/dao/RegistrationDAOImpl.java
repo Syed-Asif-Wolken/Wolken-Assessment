@@ -45,14 +45,14 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 
 	public UserEntity updatePriceByModelNo(UserEntity entity, float price) {
 		Session session = null;
-		entity.setPrice(price);
 		try {
+			entity.setPrice(price);
 	    	session = factory.openSession();
 	    	Transaction tx = session.beginTransaction();
 	    	session.saveOrUpdate(entity);
 	    	tx.commit();
 		}
-		catch(RollbackException e) {
+		catch(NullPointerException | RollbackException e) {
 			log.error(e.getMessage());
 		}
 		finally {
@@ -65,14 +65,14 @@ public class RegistrationDAOImpl implements RegistrationDAO{
 	
 	public UserEntity updateAvailabilityByModelNo(UserEntity entity, boolean availability) {
 		Session session = null;
-		entity.setAvailability(availability);
 		try {
+			entity.setAvailability(availability);
 	    	session = factory.openSession();
 	    	Transaction tx = session.beginTransaction();
 	    	session.saveOrUpdate(entity);
 	    	tx.commit();
 		}
-		catch(RollbackException e) {
+		catch(NullPointerException | RollbackException e) {
 			log.error(e.getMessage());
 		}
 		finally {

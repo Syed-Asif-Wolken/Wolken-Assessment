@@ -1,0 +1,45 @@
+.mybody{
+    background-image: url("../images/fb1.jpg")!important;
+    background-size: cover;
+    height: 100%;
+}
+.card-round{
+    border-radius: 10% !important;
+}
+
+.login-body{
+    background-image: url("../images/maxresdefault.jpg")!important;
+    background-size: cover;
+}
+
+.ft1{
+    text-align: center;
+    padding-top: 20px;
+    bottom: 0;
+    left: 45%;    
+}
+.ft2{
+    left: 45%;
+    position: absolute;
+    padding-top: 20px;
+    bottom: 0%;    
+}
+
+.top-move{
+    margin-top: 7%;
+    margin-left: 15%!important;
+}
+
+.shade{
+    box-shadow: 23px 20px 20px 1px!important;
+}
+
+.shade-light{
+    box-shadow: 18px 20px 30px 2px!important;
+}
+
+header{
+    top: 0%;
+    overflow: visible !important;
+    position: sticky !important;
+}

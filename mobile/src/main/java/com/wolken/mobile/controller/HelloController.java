@@ -1,5 +1,4 @@
 package com.wolken.mobile.controller;
-
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -14,17 +13,17 @@ import com.wolken.mobile.services.RegistrationService;
 
 @Controller
 public class HelloController{
-
+ 
 Logger logger = Logger.getLogger(this.getClass().getSimpleName());
-	
-@Autowired
+
+@Autowired 
 RegistrationService service;
 
 @RequestMapping("save")
-ModelAndView save(UserDTO dto) {
+ModelAndView save(UserDTO dto) { 
 	ModelAndView view = new ModelAndView();
 	String out = service.validateAndSave(dto);
-	view.setViewName("hello");
+	view.setViewName("hello"); 
 	view.addObject("out", out);
 	return view;
 }
@@ -33,27 +32,27 @@ ModelAndView save(UserDTO dto) {
 ModelAndView updatePrice(UserDTO dto) {
 	ModelAndView view = new ModelAndView();
 	UserEntity out = service.updatePriceByModelNo(dto.getModelNumber(), dto.getPrice());
+	logger.info(""+out);
 	view.setViewName("hello");
 	if(out!=null) {
 		view.addObject("out","Updated Successfully");
 	}
-	view.addObject("onedata", out);
 	if(out==null) {
 		view.addObject("msg", "Data not found");
 		logger.warn("Data not found");
 	}
 	return view;
-}
+} 
 
 @RequestMapping("update-availability")
 ModelAndView updateAvailability(UserDTO dto) {
 	ModelAndView view = new ModelAndView();
 	UserEntity out = service.updateAvailabilityByModelNo(dto.getModelNumber(), dto.isAvailability());
+	logger.info(""+out); 
 	view.setViewName("hello");
 	if(out!=null) {
 		view.addObject("out","Updated Successfully");
 	}
-	view.addObject("onedata", out);
 	if(out==null) {
 		view.addObject("msg", "Data not found");
 		logger.warn("Data not found");
@@ -68,8 +67,10 @@ ModelAndView getByPrice(UserDTO dto) {
 	List<UserEntity> out = service.getByPrice(dto.getPrice());
 	view.setViewName("hello");
 	view.addObject("data", out);
-	view.addObject("msg", "Data not found");
-	logger.error("Data not found");
+	if(out.isEmpty()) {
+		view.addObject("msg", "Data not found");
+		logger.warn("Data not found");
+	}
 	return view;
 }
 
@@ -79,8 +80,10 @@ ModelAndView getByBrand(UserDTO dto) {
 	List<UserEntity> out = service.getByBrandName(dto.getBrandName());
 	view.setViewName("hello");
 	view.addObject("data", out);
-	view.addObject("msg", "Data not found");
-	logger.fatal("Data not found");
+	if(out.isEmpty()) {
+		view.addObject("msg", "Data not found");
+		logger.warn("Data not found");
+	}
 	return view;
 }
 

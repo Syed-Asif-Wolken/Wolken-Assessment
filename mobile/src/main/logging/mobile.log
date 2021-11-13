@@ -1,0 +1,24 @@
+14-11-2021 01:42:57 -> Execution Thread: [http-nio-8080-exec-7]-[0]-[getByPrice]-[INFO]-[HelloController] 
+ UserDTO(id=0, brandName=null, type=null, ram=0, rom=0, modelNumber=0, price=8768.0, modelName=null, availability=false) 
+14-11-2021 01:42:57 -> Execution Thread: [http-nio-8080-exec-7]-[145]-[getByPrice]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [] 
+14-11-2021 01:42:57 -> Execution Thread: [http-nio-8080-exec-7]-[145]-[getByPrice]-[WARN]-[HelloController] 
+ Data not found 
+14-11-2021 01:43:02 -> Execution Thread: [http-nio-8080-exec-1]-[5024]-[getByPrice]-[INFO]-[HelloController] 
+ UserDTO(id=0, brandName=null, type=null, ram=0, rom=0, modelNumber=0, price=543.0, modelName=null, availability=false) 
+14-11-2021 01:43:02 -> Execution Thread: [http-nio-8080-exec-1]-[5098]-[getByPrice]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [UserEntity(id=2, brandName=kjf, type=kjsdf, ram=766, rom=56, modelNumber=35345, price=543.0, modelName=kjf, availability=true), UserEntity(id=3, brandName=dfs, type=kjsdf, ram=23, rom=123, modelNumber=34532, price=543.0, modelName=kjsdf, availability=true)] 
+14-11-2021 01:43:17 -> Execution Thread: [http-nio-8080-exec-6]-[20123]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=640.0, modelName=asd, availability=false)] 
+14-11-2021 01:43:21 -> Execution Thread: [http-nio-8080-exec-10]-[24009]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [] 
+14-11-2021 01:43:21 -> Execution Thread: [http-nio-8080-exec-10]-[24010]-[getByBrand]-[WARN]-[HelloController] 
+ Data not found 
+14-11-2021 01:43:24 -> Execution Thread: [http-nio-8080-exec-4]-[27708]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [] 
+14-11-2021 01:43:24 -> Execution Thread: [http-nio-8080-exec-4]-[27708]-[getByBrand]-[WARN]-[HelloController] 
+ Data not found 
+14-11-2021 01:43:29 -> Execution Thread: [http-nio-8080-exec-8]-[32233]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [] 
+14-11-2021 01:43:29 -> Execution Thread: [http-nio-8080-exec-8]-[32233]-[getByBrand]-[WARN]-[HelloController] 
+ Data not found 

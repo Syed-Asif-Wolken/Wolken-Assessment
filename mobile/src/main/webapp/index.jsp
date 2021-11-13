@@ -1,27 +1,106 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ page isELIgnored="false" %>
 <html>
-<body>
-<h2>Hello World!</h2>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="<c:url value="/webapp/css/style.css" />" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Mobile Index</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body class="mybody">
+ <header>
+      <nav class="navbar navbar-light bg-fb-blue ">
+        <div class="container-fluid">
+          <a class="navbar-brand badge text-primary"><h1>MOBILE</h1></a>
+          <div>
+          <a href="updatePrice.jsp"><button class="btn btn-primary" type="submit"><h6>update price</h6></button></a>
+          <a href="updateAvailability.jsp"><button class="btn btn-primary" type="submit"><h6>update availability</h6></button></a>
+          <a href="getByPrice.jsp"><button class="btn btn-primary" type="submit"><h6>Get By price</h6></button></a> 
+          <a href="getByBrand.jsp"><button class="btn btn-primary" type="submit"><h6>Get By Brand</h6></button></a> 
+        </div>
+        </div>
+      </nav>
+    </header>
+
+<section> 
+        <div class="container fs-6">
+            <div class="row">
+              <div class="col card card-round shade-light push-down shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body p-4 p-md-5">
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Enter Mobile Details</h3>
+                <form action="save" method="Post" class="row g-3">                    
+                    <div class="col-md-12">
+                        <label for="brandName" class="form-label">Brand Name</label>
+                        <input type="text" id="brandName" class="form-control" name="brandName" placeholder="Brand name" aria-label="Brand name">
+                      </div>
+                      <div class="col-md-12" id="signup_name">
+                      </div>
+                    <div class="col-md-12">
+                      <label for="type" class="form-label">Type</label>
+                      <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+                    </div>
+                    <div class="col-md-12" id="signup_email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ram" class="form-label">RAM</label>
+                        <input type="number" class="form-control" name="ram" id="ram" placeholder="RAM">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="rom" class="form-label">ROM</label>
+                        <input type="number" class="form-control" name="rom" id="rom" placeholder="ROM">
+                      </div>
+                      <div class="col-md-12" id="signup_passes">
+                      </div>
+                    <div class="col-12">
+                      <label for="modelNumber" class="form-label">Model Number</label>
+                      <input type="text" class="form-control" name="modelNumber" id="modelNumber" placeholder="Model Number ">
+                    </div>
+                    <div class="col-md-12" id="signup_contact">
+                    </div>
+                    <div class="col-12">
+                      <label for="price" class="form-label">Price </label>
+                      <input type="number" class="form-control" name="price" id="price" placeholder="Price">
+                    </div>
+                    <div class="col-md-12" id="signup_dob">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="brandName" class="form-label">Model Name</label>
+                        <input type="text" id="modelName" class="form-control" name="modelName" placeholder="Model Name" aria-label="Model Name">
+                      </div>
+                     
+                      <div class="col-md-12">Availability</div>
+                      <div class="col-md-6">
+					  <input class="form-check-input" type="radio" name="availability" id="flexRadioDefault1" value="true">
+					  <label class="form-check-label" for="flexRadioDefault1">
+					    True
+					  </label>
+					</div>
+					<div class="col-md-6">
+					  <input class="form-check-input" type="radio" name="availability" id="flexRadioDefault2" value="false">
+					  <label class="form-check-label" for="flexRadioDefault2">
+					    False
+					  </label>
+					</div>
+                    <div class="col-md-2">
+                      <button type="submit" name="signup" value="Save" class="btn btn-primary submitter">Save</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                      </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+              </div>
+            </div>
+          </div>
+      </section>
+      
+<footer class="text-center ft1 fixed-bottom"><h6>&copy;Copyrights Reserved</h6></footer>
+
 </body>
-<a href="updatePrice.jsp"><button>update price</button></a>
-<a href="updateAvailability.jsp"><button>update availability</button></a>
-<a href="getByPrice.jsp"><button>Get By price</button></a>
-<a href="getByBrand.jsp"><button>Get By Brand</button></a>
-<form action="save" method="post">
-Brand Name: <input type="text" id="brandName" name="brandName"/>
-<br>Type: <input type="text" id="type" name="type"/>
-<br>RAM: <input type="number" id="ram" name="ram"/>
-<br>ROM: <input type="number" id="rom" name="rom"/>
-<br>Model Number: <input type="number" id="modelNumber" name="modelNumber"/>
-<br>Price: <input type="number" id="price" name="price"/>
-<br>Model Name: <input type="text" id="modelName" name="modelName"/>
-<br>
-Availability: 
-<br>
-  <input type="radio" id="vehicle1" name="availability" value="true">
-  <label for="vehicle1">True</label><br>
-  <input type="radio" id="vehicle2" name="availability" value="false">
-  <label for="vehicle2">False</label><br>
-<button type="submit" value="Submit">Submit</button>
-<button type="reset" value="Reset">Reset</button>
-</form>
 </html>

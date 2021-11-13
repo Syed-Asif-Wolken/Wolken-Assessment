@@ -31,16 +31,35 @@ public class RegistrationServiceImpl implements RegistrationService {
 	}
 
 	public List<UserEntity> getByBrandName(String brandName) {
-		
-		return dao.getByBrandName(brandName);
+		List<UserEntity> entities = dao.getByBrandName(brandName);
+		try {
+			log.info(entities);
+			}
+			catch(NullPointerException e) {
+				log.error(e.getMessage());
+			}
+		return entities;
 	}
 
 	public List<UserEntity> getByPrice(float price) {
-		return dao.getByPrice(price);
+		List<UserEntity> entityList = dao.getByPrice(price);
+		try {
+			log.info(entityList);
+			}
+			catch(NullPointerException e) {
+				log.error(e.getMessage());
+			}
+		return entityList;
 	}
 
 	public UserEntity updatePriceByModelNo(int modelNo,float price) {
 		UserEntity entity = dao.getByModelNo(modelNo);
+		try {
+			log.info(entity);
+			}
+			catch(NullPointerException e) {
+				log.error(e.getMessage());
+			}
 		return dao.updatePriceByModelNo(entity,price);
 	}
 

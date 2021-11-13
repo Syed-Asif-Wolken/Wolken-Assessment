@@ -14,9 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wolken.bank.dto.AccountDTO;
-import com.wolken.bank.dto.EmployeeDTO;
 import com.wolken.bank.entity.AccountEntity;
-import com.wolken.bank.entity.EmployeeEntity;
 import com.wolken.bank.repository.AccountRepo;
 
 
@@ -33,17 +31,25 @@ public class AccountServiceImpl implements AccountService {
 		try {
 			if(dto!=null) {
 				Date date1;
-				AccountEntity entity = new AccountEntity();
-				try {
-					date1 = new SimpleDateFormat("dd/MM/yyyy").parse(dto.getDob());
-					entity.setDob(date1);
-				} catch (ParseException e) {
-					log.error(e.getMessage());
-				}  
-				
-				BeanUtils.copyProperties(dto,entity,"dob");
-				repo.save(entity);
-				return "Data Saved Successfully";
+        		if(!dto.getBranchName().equals(null) && !dto.getBranchName().equals("")) {
+        			if(!dto.getEmail().equals(null) && !dto.getEmail().equals("")) {
+        				if(dto.getContactNo()>5999999999l && dto.getContactNo()<9999999999l) {
+        					if(dto.getDob()!=null) {
+								AccountEntity entity = new AccountEntity();
+								try {
+									date1 = new SimpleDateFormat("dd/MM/yyyy").parse(dto.getDob());
+									entity.setDob(date1);
+								} catch (ParseException e) {
+									log.error(e.getMessage());
+								}  
+								
+								BeanUtils.copyProperties(dto,entity,"dob");
+								repo.save(entity);
+								return "Data Saved Successfully";
+							}
+        				}
+        			}
+        		}
 			}
 			else {
 				log.info("DTO is null");
@@ -56,12 +62,21 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public AccountDTO validateAndGetCurrentBalance(String holderName) {
-		AccountEntity entity = repo.findByHolderName(holderName);
-		log.info(""+entity);
 		AccountDTO dto = new AccountDTO();
-		BeanUtils.copyProperties(entity, dto,"dob");  
-		dto.setDob(formatter.format(entity.getDob()));
-		log.info(""+dto);
+		if(!holderName.equals(null) && !holderName.equals("")) {
+			try {
+				AccountEntity entity = repo.findByHolderName(holderName);
+				log.info(""+entity);
+				BeanUtils.copyProperties(entity, dto,"dob");  
+				dto.setDob(formatter.format(entity.getDob()));
+				log.info(""+dto);
+			} catch (Exception e) {
+				log.error(e.getMessage());
+			}
+		}
+		else {
+			log.error("Invlaid Input");
+		}
 		return dto;
 	}
 
@@ -143,16 +158,26 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public List<AccountDTO> validateAndGetByBranchName(String branchName) {
-		List<AccountEntity> entityList = repo.findByBranchName(branchName);
 		List<AccountDTO> dtos = new ArrayList<>();
-		log.info(""+entityList);
-		for (AccountEntity entity : entityList) {
-			AccountDTO dto = new AccountDTO();
-			BeanUtils.copyProperties(entity, dto,"dob");
-			dto.setDob(formatter.format(entity.getDob()));
-			dtos.add(dto);
+		if(!branchName.equals(null) && !branchName.equals("")) {
+			try {
+				List<AccountEntity> entityList = repo.findByBranchName(branchName);
+				log.info(""+entityList);
+				for (AccountEntity entity : entityList) {
+					AccountDTO dto = new AccountDTO();
+					BeanUtils.copyProperties(entity, dto,"dob");
+					dto.setDob(formatter.format(entity.getDob()));
+					dtos.add(dto);
+				}
+				log.info(""+dtos);
+			} 
+			catch (NullPointerException | TypeMismatchException e) {
+				log.error(e.getMessage());
+			}
 		}
-		log.info(""+dtos);
+		else {
+			log.error("Invalid Input");
+		}
 		return dtos;
 	}
 
