@@ -32,7 +32,9 @@ public class AccountServiceImpl implements AccountService {
 			if(dto!=null) {
 				Date date1;
         		if(!dto.getBranchName().equals(null) && !dto.getBranchName().equals("")) {
-        			if(!dto.getEmail().equals(null) && !dto.getEmail().equals("")) {
+        			if(!dto.getEmail().equals(null) && !dto.getEmail().equals("") && !dto.getHolderName().equals(null) && !dto.getHolderName().equals("") && !dto.getTypeOfAccount().equals(null) && !dto.getTypeOfAccount().equals("")) {
+        				if(!dto.getAddress().equals(null) && !dto.getAddress().equals("") && !dto.getNominee().equals(null) && !dto.getNominee().equals("")) {
+        					if(dto.getAmount()>=0) {
         				if(dto.getContactNo()>5999999999l && dto.getContactNo()<9999999999l) {
         					if(dto.getDob()!=null) {
 								AccountEntity entity = new AccountEntity();
@@ -47,6 +49,8 @@ public class AccountServiceImpl implements AccountService {
 								repo.save(entity);
 								return "Data Saved Successfully";
 							}
+        				}
+        				}
         				}
         			}
         		}
