@@ -15,13 +15,13 @@ import com.wolken.mobile.services.RegistrationService;
 public class HelloController{
  
 Logger logger = Logger.getLogger(this.getClass().getSimpleName());
-
+ 
 @Autowired 
 RegistrationService service;
 
 @RequestMapping("save")
-ModelAndView save(UserDTO dto) { 
-	ModelAndView view = new ModelAndView();
+ModelAndView save(UserDTO dto) {  
+	ModelAndView view = new ModelAndView(); 
 	String out = service.validateAndSave(dto);
 	view.setViewName("hello"); 
 	view.addObject("out", out);

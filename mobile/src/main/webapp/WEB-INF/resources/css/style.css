@@ -1,0 +1,20 @@
+.mybody{
+    background-image: url("../images/phone1.png")!important;
+    background-size: cover;
+    height: 100%;
+}
+.card-round{
+    border-radius: 3% !important;
+}
+
+.top-move{
+    margin-top: 7%;
+    margin-left: 15%!important;
+}
+
+header{
+	z-index: 9999;
+    top: 0%;
+    overflow: visible !important;
+    position: sticky !important;
+}

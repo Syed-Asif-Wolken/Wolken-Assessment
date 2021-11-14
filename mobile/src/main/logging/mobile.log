@@ -22,3 +22,19 @@
  [] 
 14-11-2021 01:43:29 -> Execution Thread: [http-nio-8080-exec-8]-[32233]-[getByBrand]-[WARN]-[HelloController] 
  Data not found 
+14-11-2021 13:17:45 -> Execution Thread: [http-nio-8080-exec-22]-[0]-[updatePriceByModelNo]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=640.0, modelName=asd, availability=false) 
+14-11-2021 13:17:46 -> Execution Thread: [http-nio-8080-exec-22]-[273]-[updatePrice]-[INFO]-[HelloController] 
+ UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=8768.0, modelName=asd, availability=false) 
+14-11-2021 13:28:40 -> Execution Thread: [http-nio-8080-exec-23]-[654906]-[getByPrice]-[INFO]-[HelloController] 
+ UserDTO(id=0, brandName=null, type=null, ram=0, rom=0, modelNumber=0, price=8768.0, modelName=null, availability=false) 
+14-11-2021 13:28:40 -> Execution Thread: [http-nio-8080-exec-23]-[654909]-[getByPrice]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=8768.0, modelName=asd, availability=false)] 
+14-11-2021 13:30:55 -> Execution Thread: [http-nio-8080-exec-23]-[789203]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=8768.0, modelName=asd, availability=false)] 
+14-11-2021 13:30:58 -> Execution Thread: [http-nio-8080-exec-27]-[792070]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [] 
+14-11-2021 13:30:58 -> Execution Thread: [http-nio-8080-exec-27]-[792070]-[getByBrand]-[WARN]-[HelloController] 
+ Data not found 
+14-11-2021 13:47:42 -> Execution Thread: [http-nio-8080-exec-27]-[1796037]-[getByBrandName]-[INFO]-[com.wolken.mobile.services.RegistrationServiceImpl] 
+ [UserEntity(id=1, brandName=asd, type=asd, ram=23, rom=43, modelNumber=123, price=8768.0, modelName=asd, availability=false)] 
